@@ -3,9 +3,9 @@
   <head>
     <!--script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js'></script-->
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js'></script>
-
-    <!-- <script src = "page.js"></script> -->
     <script src = "found.js"> </script>
+    <script src = "search.js"> </script>
+    <script src = "update_table.js"> </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -67,7 +67,7 @@
               <label>What is your email address? </label>
               <input type ="text" class="form-control" id="found_email"/> 
               <br>
-              <button type='submit' id = "submit" class="btn btn-primary btn-lg">Report</button>
+              <button type='submit' id = "search" class="btn btn-primary btn-lg">Search</button>
 
             </form>
           </div>
@@ -75,6 +75,11 @@
       </div>
     </div>
 
+    <div id="results" style="display:none;">
+      Search Results
+      <table id="results_table"> </table>
+      <button type="submit" id = "submit">Not here? Add to our database!</button>
+    </div>
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">

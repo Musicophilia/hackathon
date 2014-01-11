@@ -5,6 +5,7 @@
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js'></script>
     <script src = "lost.js"> </script>
     <script src = "search.js"> </script>
+    <script src = "update_table.js"> </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -34,7 +35,7 @@
             <p>We are going to store the data about your lost item; if a match isn't immediately found, this way we can keep trying!</p>
 
             <form class="form-horizontal" id='report-found-item'> 
-              <label> What did you lose? </label>
+              <label id = "label_category"> What did you lose? </label>
               <br>
               <select id="lost_category" class="form-control">
                 <option value="phone">Phone</option>
@@ -46,7 +47,7 @@
                 <option value="other">Other</option>
               </select>
               <br>
-              <label> Where did you lose it? </label>
+              <label id = "label_location"> Where did you lose it? </label>
               <br>
               <select id="lost_location" class="form-control">
                 <option value="huang">Huang</option>
@@ -54,23 +55,28 @@
                 <option value="frosoco">FroSoCo</option>
               </select>
               <br>
-              <label> When did you lose it? </label>
+              <label id = "label_date"> When did you lose it? </label>
               <br>
               <input type = "date" class="form-control" id = "lost_date"/>
               <br>
-              <label> Other details about your lost item: </label>
+              <label id = "label_details"> Other details about your lost item: </label>
               <input type = "text" class="form-control" id = "lost_description"/> 
               <br>
-              <label>What is your email address? We need it to inform you of potential matches. </label>
+              <label id = "label_email">What is your email address? We need it to inform you of potential matches. </label>
               <input type ="text" class="form-control" id="lost_email"/> 
               <br>
-              <button type='submit' id = "submit" class="btn btn-primary btn-lg">Report and Search</button>
+              <button type="submit" id = "search" class="btn btn-primary btn-lg">Search</button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
+    <div id="results" style="display:none;">
+      Search Results
+      <table id="results_table"> </table>
+      <button type="submit" id = "submit">Not here? Add to our database!</button>
+    </div>
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
@@ -91,10 +97,10 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
-      
-    
+
+
     </div><!-- /.container -->
-    
+
     <footer>
       <div class="container">
         <div class="row">
