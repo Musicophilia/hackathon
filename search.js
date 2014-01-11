@@ -1,5 +1,6 @@
 var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
         found_table = client.getTable('found_items');
+        lost_table = client.getTable('lost_items');
 
 function Search(prefix) {
     var obj = this;
@@ -70,8 +71,11 @@ function Search(prefix) {
     
             console.log("SEARCH WAS CLICKED!");
             
-            var query = found_table.where({});
-            console.log(query);
+            var query;
+            if(prefix == 'lost')
+              query = found_table.where({});
+            else
+              query = lost_table.where({});
             if(search_obj.category !== '') query = query.where({category: search_obj.category});
             if(search_obj.location !== '') query = query.where({location: search_obj.location});
             if(search_obj.date !== '') {
