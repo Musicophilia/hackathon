@@ -113,6 +113,7 @@ function Search(prefix) {
                 }
             }, handleError);
             update_table(query);
+            display_map(query);
             obj.search_obj = search_obj;
 
 	    get(prefix + '_category').value = '';
