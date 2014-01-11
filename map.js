@@ -18,7 +18,7 @@ window.onload = function() {
 	  zoom: 15
 	};
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
+	get('map-container').style.display = "inline";
 	display_map(null);
 }
 
