@@ -7,7 +7,7 @@ window.onload = function() {
 		found_obj.location = get('found_location').value;
 		found_obj.description = get('found_description').value;
 		found_obj.date = get('found_date').value;
-		found_add_item(lost_obj);
+		found_add_item(found_obj);
 	});
 }
 
