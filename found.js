@@ -1,5 +1,6 @@
 var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
         todoItemTable = client.getTable('todoitem');
+        found_table = client.getTable('found_items');
 
 window.onload = function() {
 
@@ -8,9 +9,13 @@ window.onload = function() {
 		event.preventDefault();
 		var found_obj = {};
 		found_obj.name = get('found_name').value;
+		get('found_name').value = '';	
 		found_obj.location = get('found_location').value;
+		get('found_location').value = '';
 		found_obj.description = get('found_description').value;
+		get('found_description').value = '';
 		found_obj.date = get('found_date').value;
+		get('found_date').value = '';
 		found_add_item(found_obj);
 	});
 }
@@ -22,7 +27,7 @@ found_add_item = function(found_obj) {
 	// 	return;
 	// }
 	if (found_obj.name !== '') {
-		todoItemTable.insert(
+		found_table.insert(
 		{
 			name: found_obj.name, location: found_obj.location, description: found_obj.description, date: found_obj.date
 		});
