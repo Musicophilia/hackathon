@@ -2,6 +2,8 @@ var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobi
         todoItemTable = client.getTable('todoitem');
         found_table = client.getTable('found_items');
 
+function Lost() {
+
 window.onload = function() {
         var search = new Search();
 	var submit = get('submit');

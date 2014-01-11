@@ -4,18 +4,19 @@ var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobi
 
 window.onload = function() {
 
+        var search = new Search();
 	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
 		var lost_obj = {};
 		lost_obj.category = get('lost_category').value;
-			
+
 		lost_obj.location = get('lost_location').value;
-		
-		lost_obj.description = get('lost_description').value;
-		
+
+                lost_obj.description = get('lost_description').value;
+
 		lost_obj.date = get('lost_date').value;
-		
+
 		lost_add_item(lost_obj);
 	});
 }
