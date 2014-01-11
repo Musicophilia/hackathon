@@ -6,6 +6,18 @@ function Search(prefix) {
     var search = get('search');
     search.addEventListener('click', function(event) {
         console.log("search button clicked.");
+        
+        var red = get("category_redtext");
+        red.style.display="none";
+        red = get("location_redtext");
+        red.style.display="none";
+        red = get("date_redtext");
+        red.style.display="none";
+        red = get("description_redtext");
+        red.style.display="none";
+        red = get("email_redtext");
+        red.style.display="none";
+
 	event.preventDefault();
 	var search_obj = {};
 	search_obj.category = get(prefix + '_category').value;
@@ -14,25 +26,51 @@ function Search(prefix) {
 	search_obj.date = get(prefix + '_date').value;
         search_obj.email = get(prefix + '_email').value;
        
-        if(prefix == 'found' && (search_obj.category == '' || search_obj.email == '' || search_obj.location == '' || search_obj.date == ''
-            || search_obj.description == '')) {
-            alert("Must fill in all fields.");
-        } else if(search_obj.category == '') {
-            alert("Must choose a category!");
-        } else if(search_obj.email == '') {
-            alert("Must include your email!");
+        var good = true;
+        if(prefix == 'found') {
+            if(search_obj.category == '') {
+                red = get("category_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+            if(search_obj.email == '') {
+            
+                red = get("email_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+            if(search_obj.location == '') {
+              
+                red = get("location_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+            if(search_obj.date == '') {
+
+                red = get("date_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+            if(search_obj.description == '') {
+
+                red = get("description_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+
         } else {
+            if(search_obj.email == '') {
+                red = get("email_redtext");
+                red.style.display = "block";
+                good = false;
+            }
+        }
+
+        if(good) {
     
             console.log("SEARCH WAS CLICKED!");
             
             var query = found_table.where({});
-            query.read().then(function(matchedItems) {
-                console.log(matchedItems);
-                for(var i = 0; i < matchedItems.length; i++) {
-                    console.log("EVERYTHING: " + matchedItems[i].category + " " + matchedItems[i].location + " " + matchedItems[i].date);
-                }
-            }, handleError);
-            console.log("1");
             console.log(query);
             if(search_obj.category !== '') query = query.where({category: search_obj.category});
             if(search_obj.location !== '') query = query.where({location: search_obj.location});
