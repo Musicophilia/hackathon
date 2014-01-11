@@ -4,7 +4,7 @@ var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobi
 
 window.onload = function() {
     console.log("browse init");
-    var query = lost_table.where({});
+    var query = found_table.where({});
     console.log(query);
     query.read().then(function(matchedItems) {
         console.log(matchedItems);
