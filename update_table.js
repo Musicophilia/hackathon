@@ -1,0 +1,63 @@
+update_table = function(query) {
+    
+    var table = get('results');
+    var rows = table.rows;
+    for (var i = rows.length - 1; i >= 0; i--) {
+        table.deleteRow(rows[i]);
+    }
+
+    var tr = document.createElement('tr');
+    var th_category = document.createElement('td');
+    th_category.innerHTML = 'Category';
+    tr.appendChild(th_category);
+
+    var th_location = document.createElement('td');
+    th_location.innerHTML = 'Location';
+    tr.appendChild(th_location);
+
+    var th_date = document.createElement('td');
+    th_date.innerHTML = 'Date';
+    tr.appendChild(th_date);
+
+    var th_description = document.createElement('td');
+    th_description.innerHTML = 'Description';
+    tr.appendChild(th_description);
+
+    var th_email = document.createElement('td');
+    th_email.innerHTML = 'Email';
+    tr.appendChild(th_email);
+
+    table.appendChild(tr);
+
+    query.read().then(function(matchedItems) {
+        var table = get('results');
+        console.log("Hits: ", matchedItems);
+        for (var i = 0; i < matchedItems.length; i++) {
+
+            var row = matchedItems[i];
+            tr = document.createElement('tr');
+            var td_category = document.createElement('td');
+            td_category.innerHTML = row.category;
+            tr.appendChild(td_category);
+
+            var td_location = document.createElement('td');
+            td_location.innerHTML = row.location;
+            tr.appendChild(td_location);
+
+            var td_date = document.createElement('td');
+            td_date.innerHTML = row.date;
+            tr.appendChild(td_date);
+
+            var td_description = document.createElement('td');
+            td_description.innerHTML = row.description;
+            tr.appendChild(td_description);
+
+            var td_email = document.createElement('td');
+            td_email.innerHTML = row.email;
+            tr.appendChild(td_email);
+
+            table.appendChild(tr);
+
+        }
+    }, handleError);
+}
