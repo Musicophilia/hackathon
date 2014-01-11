@@ -26,6 +26,14 @@ function Search(prefix) {
             console.log("SEARCH WAS CLICKED!");
             
             var query = found_table.where({});
+            query.read().then(function(matchedItems) {
+                console.log(matchedItems);
+                for(var i = 0; i < matchedItems.length; i++) {
+                    console.log("EVERYTHING: " + matchedItems[i].category + " " + matchedItems[i].location + " " + matchedItems[i].date);
+                }
+            }, handleError);
+            console.log("1");
+            console.log(query);
             if(search_obj.category !== '') query = query.where({category: search_obj.category});
             if(search_obj.location !== '') query = query.where({location: search_obj.location});
             if(search_obj.date !== '') {

@@ -19,55 +19,71 @@ window.onload = function() {
 	};
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-
-	// Silviana's long lost sis
-	//var image = 'http://fc00.deviantart.net/fs70/f/2012/147/1/f/taeyeon_mr_taxi_repackage_purple__by_silviana_taegang-d51cvm4.png';
-	console.log(offset(), offset());
-	var myLatlng = new google.maps.LatLng(coords['Stanford'][0] + offset(), coords['Stanford'][1] + offset());
-	var marker1 = new google.maps.Marker({
-    	position: myLatlng,
-    	title:"Stanford",
-    	//icon: image
-	});
-	myLatlng = new google.maps.LatLng(coords['Arrillaga Gym'][0] + offset(), coords['Arrillaga Gym'][1] + offset());
-	var marker2 = new google.maps.Marker({
-		position: myLatlng,
-		title:"Arrillaga Gym"
-	});
-	var markers = [marker1, marker2];
-	display_markers(markers);
 	display_map(null);
-}
-
-display_markers = function(markers) {
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(map);
-	}
 }
 
 display_map = function(query) {
 
+	var myLatlng = new google.maps.LatLng(coords['Stanford'][0] + offset(), coords['Stanford'][1] + offset());
+	var marker1 = new google.maps.Marker({
+    	position: myLatlng,
+    	title:"Stanford",
+    	map: map
+	});
+	myLatlng = new google.maps.LatLng(coords['Arrillaga Gym'][0] + offset(), coords['Arrillaga Gym'][1] + offset());
+	var marker2 = new google.maps.Marker({
+		position: myLatlng,
+		title:"Arrillaga Gym",
+		map: map
+	});
+	var markers = [marker1, marker2];
+
     //query.read().then(function(matchedItems) {
-    	var circles = [];
-    	var matchedItems = [{location: 'Huang'}];
+    	//var markers = [];
+    	var matchedItems = [{location: 'Huang', date: 'Friday Jan 10'}];
     	for (var i = 0; i < matchedItems.length; i++) {
     		var row = matchedItems[i];
     		if (row.location === null || row.location === '') continue;
     		var lat_lng = new google.maps.LatLng(coords[row.location][0] + offset(), coords[row.location][1] + offset());
-    		var circle_options = {
-		    	strokeColor: 'red',
-		    	strokeOpacity: 1,
-		    	strokeWeight: 1,
-		    	fillColor: 'red',
-		    	fillOpacity: 0.4,
-		    	map: map,
-		    	center: lat_lng,
-		    	radius: 30
+    		
+    		var marker_options = {
+    			position: lat_lng,
+    			title: row.location,
+    			map: map,
+    			category: row.category,
+    			location: row.location,
+    			date: row.date,
+    			email: row.email,
+    			description: row.description
     		};
-    		var circle = new google.maps.Circle(circle_options);
+
+    		// var circle_options = {
+		    // 	strokeColor: 'red',
+		    // 	strokeOpacity: 1,
+		    // 	strokeWeight: 2,
+		    // 	fillColor: 'red',
+		    // 	fillOpacity: 0.4,
+		    // 	map: map,
+		    // 	center: lat_lng,
+		    // 	radius: 100
+    		// };
+    		var marker = new google.maps.Marker(marker_options);
+    		markers.push(marker);
     	}
+    	for (var i = 0; i < markers.length; i++) {
+    		var marker = markers[i];
+    		google.maps.event.addListener(marker, 'mouseover', function(event) {
+    			console.log(marker);
+    			// get('item_info').style.display = "inline";
+    			// get('category').innerHTML = marker.date;
+    		});
+    	}
+    	
     //}, handleError);
 }
 
+get = function(id) {
+    return document.getElementById(id);
+}
 
 
