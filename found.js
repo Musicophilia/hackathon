@@ -3,7 +3,7 @@ var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobi
         found_table = client.getTable('found_items');
 
 window.onload = function() {
-
+        var search = new Search();
 	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
@@ -15,7 +15,7 @@ window.onload = function() {
 		found_obj.description = get('found_description').value;
 		
 		found_obj.date = get('found_date').value;
-		
+
 		found_add_item(found_obj);
 	});
 }
