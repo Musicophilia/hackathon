@@ -3,15 +3,20 @@
   <head>
     <!--script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js'></script-->
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js'></script>
+<<<<<<< HEAD
+    <script src = "page.js"></script>
+    <script src = "lost.js"> </script>
+=======
     <!-- <script src = "page.js"></script> -->
     <script src = "found.js"> </script>
     <script src = "search.js"> </script>
+>>>>>>> da943a39007ea01d0ba5983614904f234e664b87
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Report found item:</title>
+    <title>Lost Trees</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -24,6 +29,56 @@
     <!--<script src = "found.js" />-->
     <div class="brand">Lost Trees</div>
     <div class="address-bar">The Lost and Found Center for the Stanford Community</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-lg-12 text-center">
+
+
+            <h1>Report found item </h1>
+            <p>Thanks for your help and honesty!</p> 
+ 
+            <p>Please enter as much information as you can. If someone thinks that he or she is the rightful owner, you will receive a message.</p>
+
+            <form class="form-horizontal" id='report-found-item' action="results.html"> 
+              <label> What did you find? </label>
+              <br>
+              <select id="found_category" class="form-control">
+                <option value="phone">Phone</option>
+                <option value="computer">Computer</option>
+                <option value="misctech">Miscellaneous Tech Item</option>
+                <option value="keys">Keys</option>
+                <option value="clothing">Clothing</option>
+                <option value="bag">Backpack or bag</option>
+                <option value="">Other</option>
+              </select>
+              <br>
+              <label> Where did you find it? </label>
+              <br>
+              <select id="found_location" class="form-control">
+                <option value="huang">Huang</option>
+                <option value="greenLib">Green Library</option>
+                <option value="frosoco">FroSoCo</option>
+              </select>
+              <br>
+              <label> When did you find it? </label>
+              <br>
+              <input type = "date" class="form-control" id = "found_date"/>
+              <br>
+              <label> Other details about the found item: </label>
+              <input type = "text" class="form-control" id = "found_description"/> 
+              <br>
+              <label>What is your email address? </label>
+              <input type ="text" class="form-control" id="found_email"/> 
+              <br>
+              <button type='submit' id = "submit" class="btn btn-primary btn-lg">Report</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
@@ -41,14 +96,15 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="found.html">Found</a></li>
-            <li><a href="lost.html">Lost</a></li>
-            <li><a href="browse.html">Browse found or lost items</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="browse_lost.html">Browse lost items</a></li>
+            <li><a href="browse_found.html">Browse found items</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>
+<<<<<<< HEAD
+=======
 
     <form id='report-found-item'>
       <label> Category: </label>
@@ -64,6 +120,7 @@
     </form>
 
 
+>>>>>>> da943a39007ea01d0ba5983614904f234e664b87
       
     
     </div><!-- /.container -->
