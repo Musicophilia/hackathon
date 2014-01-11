@@ -16,30 +16,31 @@ update_table = function(query) {
     for (var i = rows.length - 1; i >= 0; i--) {
         table.deleteRow(rows[i]);
     }
-
+    var thead = document.createElement('thead');
+    table.appendChild(thead);
     var tr = document.createElement('tr');
-    var th_category = document.createElement('td');
+    var th_category = document.createElement('th');
     th_category.innerHTML = 'Category';
     tr.appendChild(th_category);
 
-    var th_location = document.createElement('td');
+    var th_location = document.createElement('th');
     th_location.innerHTML = 'Location';
     tr.appendChild(th_location);
 
-    var th_date = document.createElement('td');
+    var th_date = document.createElement('th');
     th_date.innerHTML = 'Date';
     tr.appendChild(th_date);
 
-    var th_description = document.createElement('td');
+    var th_description = document.createElement('th');
     th_description.innerHTML = 'Description';
     tr.appendChild(th_description);
 
-    var th_email = document.createElement('td');
+    var th_email = document.createElement('th');
     th_email.innerHTML = 'Email';
     tr.appendChild(th_email);
-
-    table.appendChild(tr);
-
+    thead.appendChild(tr);
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
     query.read().then(function(matchedItems) {
         var table = get('results_table');
         console.log("Hits: ", matchedItems);
@@ -67,7 +68,7 @@ update_table = function(query) {
             td_email.innerHTML = row.email;
             tr.appendChild(td_email);
 
-            table.appendChild(tr);
+            tbody.appendChild(tr);
 
         }
     }, handleError);
