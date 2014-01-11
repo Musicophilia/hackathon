@@ -20,9 +20,13 @@ window.onload = function() {
 function watchLost() {
     var lostButton = get("browse_lost");
     lostButton.addEventListener("click", function(event) {
+        lostButton.style.display="none";
+        var foundButton = get("browse_found");
+        foundButton.style.display="inline";
+
         console.log("browse lost clicked");
         var title = get("table_title");
-        title.innerHTML = ("Browsing Lost Items");
+        title.innerHTML = ("<h1>Browsing Lost Items</h1>");
         var query = lost_table.where({});
         console.log(query);
         query.read().then(function(matchedItems) {
@@ -38,10 +42,14 @@ function watchLost() {
 function watchFound() {
     var foundButton = get("browse_found");
     foundButton.addEventListener("click", function(event) {
+        foundButton.style.display="none";
+        var lostButton = get("browse_lost");
+        lostButton.style.display="inline";
+
         console.log("browse found clicked");
         var query = found_table.where({});
         var title = get("table_title");
-        title.innerHTML = ("Browsing Found Items");
+        title.innerHTML = ("<h1>Browsing Found Items</h1>");
         console.log(query);
         query.read().then(function(matchedItems) {
             console.log(matchedItems);
