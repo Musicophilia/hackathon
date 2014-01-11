@@ -4,9 +4,13 @@ Table should be hidden until report is clicked
 */
 
 update_table = function(query) {
-    
-    var table = get('results');
+   
+    var results_section = get('results');
+    results_section.style.display="block";
+    var table = get('results_table');
+
     var rows = table.rows;
+    console.log("table rows = " + rows.length);
     for (var i = rows.length - 1; i >= 0; i--) {
         table.deleteRow(rows[i]);
     }
@@ -35,7 +39,7 @@ update_table = function(query) {
     table.appendChild(tr);
 
     query.read().then(function(matchedItems) {
-        var table = get('results');
+        var table = get('results_table');
         console.log("Hits: ", matchedItems);
         for (var i = 0; i < matchedItems.length; i++) {
 
