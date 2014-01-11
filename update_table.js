@@ -12,7 +12,6 @@ update_table = function(query) {
     var table = get('results_table');
 
     var rows = table.rows;
-    console.log("table rows = " + rows.length);
     for (var i = rows.length - 1; i >= 0; i--) {
         table.deleteRow(rows[i]);
     }
@@ -44,35 +43,29 @@ update_table = function(query) {
     query.read().then(function(matchedItems) {
         var table = get('results_table');
         console.log("Hits: ", matchedItems);
-        console.log("matchedItems.length = " + matchedItems.length);
         for (var i = 0; i < matchedItems.length; i++) {
-            console.log("i=" + i);
             var row = matchedItems[i];
             tr = document.createElement('tr');
             var td_category = document.createElement('td');
             td_category.innerHTML = row.category;
             tr.appendChild(td_category);
-console.log(1);
+
             var td_location = document.createElement('td');
             td_location.innerHTML = row.location;
             tr.appendChild(td_location);
 
-console.log(2);
             var td_date = document.createElement('td');
             td_date.innerHTML = row.date.toDateString();
             tr.appendChild(td_date);
 
-console.log(3);
             var td_description = document.createElement('td');
             td_description.innerHTML = row.description;
             tr.appendChild(td_description);
 
-console.log(4);
             var td_email = document.createElement('td');
             td_email.innerHTML = row.email;
             tr.appendChild(td_email);
 
-console.log(5);
             tbody.appendChild(tr);
 
         }

@@ -1,10 +1,10 @@
-var client = new WindowsAzure.MobileServiceClient('https://found-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
+var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
         found_table = client.getTable('found_items');
         lost_table = client.getTable('lost_items');
 
 window.onload = function() {
     console.log("browse init");
-    var query = found_table.where({category:"phone"});
+    var query = lost_table.where({});
     console.log(query);
     query.read().then(function(matchedItems) {
         console.log(matchedItems);
