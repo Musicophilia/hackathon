@@ -9,9 +9,18 @@ var coords = {
 var mapOptions = null;
 var map = null;
 
+var on_marker = false;
+
 offset = function() {
 	return Math.random() / 1000;
 }
+
+window.addEventListener('click', function(event) {
+	if (!on_marker) return;
+	var x = event.clientX;
+	var y = event.clientY;
+
+});
 
 function ItemMap() {
 
@@ -57,7 +66,8 @@ display_map = function(query) {
     			location: row.location,
     			date: row.date,
     			email: row.email,
-    			description: row.description
+    			description: row.description,
+    			icon: 'hottest button.png'
     		};
 
     		// var circle_options = {
@@ -77,7 +87,7 @@ display_map = function(query) {
     		marker = markers[i];
     		//marker.setMap(map);
     		google.maps.event.addListener(marker, 'mouseover', function(event) {
-    			console.log(marker);
+    			on_marker = true;
     			// get('item_info').style.display = "inline";
     			// get('category').innerHTML = marker.date;
     		});
