@@ -8,7 +8,7 @@ window.onload = function() {
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
 		var lost_obj = {};
-		lost_obj.name = get('lost_name').value;
+		lost_obj.category = get('lost_category').value;
 			
 		lost_obj.location = get('lost_location').value;
 		
@@ -26,12 +26,12 @@ lost_add_item = function(lost_obj) {
 	// 	console.log('Wrong number of values');
 	// 	return;
 	// }
-	if (lost_obj.name !== '') {
+	if (lost_obj.category !== '') {
 		lost_table.insert(
 		{
-			name: lost_obj.name, location: lost_obj.location, description: lost_obj.description, date: lost_obj.date
+			category: lost_obj.category, location: lost_obj.location, description: lost_obj.description, date: lost_obj.date
 		});
-		get('lost_name').value = '';
+		get('lost_category').value = '';
 		get('lost_location').value = '';
 		get('lost_description').value = '';
 		get('lost_date').value = '';
