@@ -26,17 +26,6 @@ found_add_item = function(found_obj) {
 }
 
 
-$('#add-item').submit(function(evt) {
-        var textbox = $('#new-item-text'),
-            itemText = textbox.val();
-        if (itemText !== '') {
-            todoItemTable.insert({ text: itemText, complete: false, location: 'new locale' }).then(refreshTodoItems, handleError);
-        }
-        textbox.val('').focus();
-        evt.preventDefault();
-    });
-
-
 get = function(id) {
     return document.getElementById(id);
 }
