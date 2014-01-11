@@ -4,7 +4,9 @@ Table should be hidden until report is clicked
 */
 
 update_table = function(query) {
-   
+
+    var report_section = get('report_section');
+    report_section.style.display="none";
     var results_section = get('results');
     results_section.style.display="block";
     var table = get('results_table');
@@ -54,7 +56,7 @@ update_table = function(query) {
             tr.appendChild(td_location);
 
             var td_date = document.createElement('td');
-            td_date.innerHTML = row.date;
+            td_date.innerHTML = row.date.toDateString();
             tr.appendChild(td_date);
 
             var td_description = document.createElement('td');
