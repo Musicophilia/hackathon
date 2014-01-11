@@ -1,3 +1,8 @@
+/*
+Need to add a table with id 'resuts' to the html page
+Table should be hidden until report is clicked
+*/
+
 update_table = function(query) {
     
     var table = get('results');
