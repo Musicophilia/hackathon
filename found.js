@@ -8,11 +8,8 @@ window.onload = function() {
 		event.preventDefault();
 		var found_obj = {};
 		found_obj.category = get('found_category').value;
-			
 		found_obj.location = get('found_location').value;
-		
 		found_obj.description = get('found_description').value;
-		
 		found_obj.date = get('found_date').value;
 		found_obj.email = get('found_email').value;
 

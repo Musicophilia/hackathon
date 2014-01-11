@@ -4,7 +4,6 @@ var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobi
 
 window.onload = function() {
 
-        var search = new Search();
 	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
@@ -27,11 +26,13 @@ lost_add_item = function(lost_obj) {
 	// 	console.log('Wrong number of values');
 	// 	return;
 	// }
-	if (lost_obj.category !== '') {
+	if (lost_obj.category !== '' && lost_obj.email !== '') {
 		lost_table.insert(
 		{
-			category: lost_obj.category, location: lost_obj.location, description: lost_obj.description, date: lost_obj.date
+			category: lost_obj.category, location: lost_obj.location, description: lost_obj.description, date: lost_obj.date,
+                  email: lost_obj.email
 		});
+                var search = new Search();
 		get('lost_category').value = '';
 		get('lost_location').value = '';
 		get('lost_description').value = '';
