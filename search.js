@@ -39,6 +39,14 @@ function Search(prefix) {
                 red = get("email_redtext");
                 red.style.display = "block";
                 good = false;
+            } else {
+                var re = /\S+@\S+\.\S+/;
+                red = get("email_redtext");
+                var formatted = re.test(search_obj.email);
+                if(!formatted) {
+                    red.style.display = "block";
+                    good = false;
+                }
             }
             if(search_obj.location == '') {
               
@@ -64,6 +72,14 @@ function Search(prefix) {
                 red = get("email_redtext");
                 red.style.display = "block";
                 good = false;
+            } else {
+                var re = /\S+@\S+\.\S+/;
+                red = get("email_redtext");
+                var formatted = re.test(search_obj.email);
+                if(!formatted) {
+                    red.style.display = "block";
+                    good = false;
+                }
             }
         }
 
