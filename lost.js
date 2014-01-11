@@ -11,7 +11,7 @@ window.onload = function() {
 
         var results_section = get('results');
         results_section.style.display="hidden";
-        setTimeout(function() {window.location = "lost.html";}, 500);
+        setTimeout(function() {window.location = "thanks.html";}, 500);
     });
 }
 
