@@ -1,12 +1,21 @@
+var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
+        todoItemTable = client.getTable('todoitem');
+        lost_table = client.getTable('lost_items');
+
 window.onload = function() {
+
 	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
 		var lost_obj = {};
 		lost_obj.name = get('lost_name').value;
+			
 		lost_obj.location = get('lost_location').value;
+		
 		lost_obj.description = get('lost_description').value;
+		
 		lost_obj.date = get('lost_date').value;
+		
 		lost_add_item(lost_obj);
 	});
 }
@@ -18,12 +27,17 @@ lost_add_item = function(lost_obj) {
 	// 	return;
 	// }
 	if (lost_obj.name !== '') {
-		todoItemTable.insert(
+		lost_table.insert(
 		{
 			name: lost_obj.name, location: lost_obj.location, description: lost_obj.description, date: lost_obj.date
 		});
+		get('lost_name').value = '';
+		get('lost_location').value = '';
+		get('lost_description').value = '';
+		get('lost_date').value = '';
 	}
 }
+
 
 get = function(id) {
     return document.getElementById(id);
