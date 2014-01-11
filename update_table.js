@@ -56,7 +56,7 @@ update_table = function(query) {
             tr.appendChild(td_location);
 
             var td_date = document.createElement('td');
-            td_date.innerHTML = row.date;
+            td_date.innerHTML = row.date.toDateString();
             tr.appendChild(td_date);
 
             var td_description = document.createElement('td');
