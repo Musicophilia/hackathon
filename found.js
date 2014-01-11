@@ -26,7 +26,7 @@ found_add_item = function(found_obj) {
 	// 	console.log('Wrong number of values');
 	// 	return;
 	// }
-	if (found_obj.category !== '') {
+	if (found_obj.category !== '' && found_obj.location !== '' && found_obj.date !== '' && found_obj.email !== '') {
 		found_table.insert(
 		{
 			category: found_obj.category, location: found_obj.location, description: found_obj.description, 
