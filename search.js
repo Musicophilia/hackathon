@@ -30,11 +30,7 @@ function Search() {
         }
         console.log("After var items");
     }, handleError);
-    get('lost_category').value = '';
-    get('lost_location').value = '';
-    get('lost_description').value = '';
-    get('lost_date').value = '';
-    get('lost_email').value = '';
+    var up = new update_table(query);
 }
 
 function handleError(error) {

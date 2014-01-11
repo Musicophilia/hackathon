@@ -40,7 +40,6 @@ lost_add_item = function(lost_obj) {
 	}
 }
 
-
 get = function(id) {
     return document.getElementById(id);
 }
