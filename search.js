@@ -1,18 +1,17 @@
 var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
-        todoItemTable = client.getTable('todoitem');
         found_table = client.getTable('found_items');
 
 function Search() {
 
-    var search = get('search');
+    var search = get('submit');
 
     search.addEventListener('click', function(event) {
         event.preventDefault();
         console.log("SEARCH WAS CLICKED!");
         var search_obj = {};
-        search_obj.category = get('found_category').value;
-        search_obj.location = get('found_location').value;
-        search_obj.date = get('found_date').value;
+        search_obj.category = get('lost_category').value;
+        search_obj.location = get('lost_location').value;
+        search_obj.date = get('lost_date').value;
 
         console.log("  searched: category = " + search_obj.category + ", location = " + search_obj.location);
 
@@ -34,10 +33,10 @@ function Search() {
             }
             console.log("After var items");
         }, handleError);
-      	get('found_category').value = '';
-        get('found_location').value = '';
-	get('found_description').value = '';
-	get('found_date').value = '';
+      	get('lost_category').value = '';
+        get('lost_location').value = '';
+	get('lost_description').value = '';
+	get('lost_date').value = '';
     });
 }
 
