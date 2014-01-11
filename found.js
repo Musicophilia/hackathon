@@ -1,4 +1,4 @@
-var client = new WindowsAzure.MobileServiceClient('https://found-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
+var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
         found_table = client.getTable('found_items');
 
 window.onload = function() {
