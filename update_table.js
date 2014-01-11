@@ -4,7 +4,9 @@ Table should be hidden until report is clicked
 */
 
 update_table = function(query) {
-   
+
+    var report_section = get('report_section');
+    report_section.style.display="none";
     var results_section = get('results');
     results_section.style.display="block";
     var table = get('results_table');
