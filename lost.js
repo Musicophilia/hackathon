@@ -1,5 +1,5 @@
 window.onload = function() {
-	var submit = get('lost_submit');
+	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
 		var lost_obj = {};
