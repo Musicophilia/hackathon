@@ -32,12 +32,13 @@
 
 
             <h1>Report found item </h1>
-            <p>Thanks for your help and honesty!</p> 
- 
+            <p>Thanks for your help and honesty!</p>
+
             <p>Please enter as much information as you can. If someone thinks that he or she is the rightful owner, you will receive a message.</p>
 
-            <form class="form-horizontal" id='report-found-item'> 
+            <form class="form-horizontal" id='report-found-item'>
               <label> What did you find? </label>
+              <div id="category_redtext" style="display:none; color:red">Required field</div>
               <br>
               <select id="found_category" class="form-control">
                 <option value="phone">Phone</option>
@@ -50,6 +51,7 @@
               </select>
               <br>
               <label> Where did you find it? </label>
+              <div id="location_redtext" style="display:none; color:red">Required field</div>
               <br>
               <select id="found_location" class="form-control">
                 <option value="huang">Huang</option>
@@ -58,14 +60,17 @@
               </select>
               <br>
               <label> When did you find it? </label>
+              <div id="date_redtext" style="display:none; color:red">Required field</div>
               <br>
               <input type = "date" class="form-control" id = "found_date"/>
               <br>
               <label> Other details about the found item: </label>
-              <input type = "text" class="form-control" id = "found_description"/> 
+              <div id="description_redtext" style="display:none; color:red">Required field</div>
+              <input type = "text" class="form-control" id = "found_description"/>
               <br>
               <label>What is your email address? </label>
-              <input type ="text" class="form-control" id="found_email"/> 
+              <div id="email_redtext" style="display:none; color:red">Required field</div>
+              <input type ="text" class="form-control" id="found_email"/>
               <br>
               <button type='submit' id = "search" class="btn btn-custom btn-lg">Search</button>
 
