@@ -1,4 +1,8 @@
+var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
+        todoItemTable = client.getTable('todoitem');
+
 window.onload = function() {
+
 	var submit = get('submit');
 	submit.addEventListener('click', function(event) {
 		event.preventDefault();
