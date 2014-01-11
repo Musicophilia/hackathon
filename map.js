@@ -9,18 +9,32 @@ var coords = {
 var mapOptions = null;
 var map = null;
 
-var on_marker = false;
+// var on_marker = false;
+// var curr_marker = null;
+// var div = null;
 
 offset = function() {
 	return Math.random() / 1000;
 }
 
-window.addEventListener('click', function(event) {
-	if (!on_marker) return;
-	var x = event.clientX;
-	var y = event.clientY;
-
-});
+// window.addEventListener('click', function(event) {
+// 	if (!on_marker) {
+// 		if (div !== null) {
+// 			div.parentNode.removeChild(div);
+// 		}
+// 		return;
+// 	}
+// 	var x = event.clientX;
+// 	var y = event.clientY;
+// 	div = document.createElement('div');
+// 	div.style.position = 'absolute';
+// 	div.style.left = x + 'px';
+// 	div.style.top = y + 'px';
+// 	document.body.appendChild(div);
+// 	div.style.background = 'white';
+// 	div.innerHTML = curr_marker.location + ' ' + curr_marker.date + ' ' + curr_marker.email;
+// 	on_marker = false;
+// });
 
 function ItemMap() {
 
@@ -86,11 +100,12 @@ display_map = function(query) {
     	for (var i = 0; i < markers.length; i++) {
     		marker = markers[i];
     		//marker.setMap(map);
-    		google.maps.event.addListener(marker, 'mouseover', function(event) {
-    			on_marker = true;
-    			// get('item_info').style.display = "inline";
-    			// get('category').innerHTML = marker.date;
-    		});
+    		// google.maps.event.addListener(marker, 'mouseover', function(event) {
+    		// 	on_marker = true;
+    		// 	// get('item_info').style.display = "inline";
+    		// 	// get('category').innerHTML = marker.date;
+    		// 	curr_marker = this;
+    		// });
     	}
     	//map.checkResize();	
     	//google.maps.event.trigger(map, 'resize');
