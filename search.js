@@ -1,5 +1,4 @@
 var client = new WindowsAzure.MobileServiceClient('https://lost-found.azure-mobile.net/', 'PgYPjeVvaByElucuwGqnmaPVhkkgtf15'),
-        todoItemTable = client.getTable('todoitem');
         found_table = client.getTable('found_items');
 
 function Search() {
